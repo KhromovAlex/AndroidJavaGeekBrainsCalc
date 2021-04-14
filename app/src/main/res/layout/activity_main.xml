@@ -4,15 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/default_padding"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/main__output_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        android:padding="@dimen/default_padding"
+        android:textAlignment="viewEnd"
+        app:drawableLeftCompat="@drawable/ic_android_black_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/main__container_calc"
+        app:layout_constraintLeft_toLeftOf="@+id/main__container_calc"
+        app:layout_constraintRight_toRightOf="@+id/main__container_calc"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <GridLayout
+        android:id="@+id/main__container_calc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_gravity="center"
+        android:columnCount="5"
+        android:orientation="horizontal"
+        android:rowCount="4"
+        android:rowOrderPreserved="false"
+        android:useDefaultMargins="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/main__output_text">
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_7" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_8" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_9" />
+
+        <Button
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_remove_all" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_4" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_5" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_6" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_plus" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_multiply" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_1" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_2" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_3" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_minus" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_divide" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_0" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_00" />
+
+        <Button
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_dot" />
+
+        <Button
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:minWidth="@dimen/min_width_calc_button"
+            android:text="@string/calc_button_equals" />
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
