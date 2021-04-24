@@ -85,9 +85,9 @@ public class Calculator implements Parcelable {
         }
     }
 
-    public double calculate() {
+    public void calculate() {
         if (operandOne == null || operandTwo == null) {
-            return 0;
+            return;
         }
         switch (operator) {
             case PLUS: {
@@ -95,31 +95,30 @@ public class Calculator implements Parcelable {
                 operator = null;
                 operandOne = result + "";
                 operandTwo = null;
-                return result;
+                return;
             }
             case MINUS: {
                 double result = parseDouble(operandOne) - parseDouble(operandTwo);
                 operator = null;
                 operandOne = result + "";
                 operandTwo = null;
-                return result;
+                return;
             }
             case MULTIPLY: {
                 double result = parseDouble(operandOne) * parseDouble(operandTwo);
                 operator = null;
                 operandOne = result + "";
                 operandTwo = null;
-                return result;
+                return;
             }
             case DIVIDE: {
                 double result = parseDouble(operandOne) / parseDouble(operandTwo);
                 operator = null;
                 operandOne = result + "";
                 operandTwo = null;
-                return result;
+                return;
             }
             default:
-                return 0;
         }
     }
 

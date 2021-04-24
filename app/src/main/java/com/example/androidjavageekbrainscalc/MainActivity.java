@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String CALC = "calc";
     private Calculator calculator;
     private TextView resultTextView;
+    private final int[] numberButtonIds = new int[]{R.id.calc_button_0, R.id.calc_button_1, R.id.calc_button_2, R.id.calc_button_3,
+            R.id.calc_button_4, R.id.calc_button_5, R.id.calc_button_6, R.id.calc_button_7, R.id.calc_button_8, R.id.calc_button_9};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,21 +28,8 @@ public class MainActivity extends AppCompatActivity {
             resultTextView.setText(calculator.getLastOperand() == null ? "0" : calculator.getLastOperand());
         }
 
-        findViewById(R.id.calc_button_0).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) return;
-                calculator.setOperandOne(resultTextView.getText().toString() + "0");
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("0");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) return;
-                calculator.setOperandTwo(resultTextView.getText().toString() + "0");
-                resultTextView.setText(calculator.getLastOperand());
-            }
+        setNumberButtonListeners();
 
-        });
         findViewById(R.id.calc_button_00).setOnClickListener(v -> {
             if (calculator.getOperator() == null) {
                 if (resultTextView.getText().toString().equals("0")) return;
@@ -59,186 +48,6 @@ public class MainActivity extends AppCompatActivity {
                     calculator.setOperandTwo("0");
                 } else {
                     calculator.setOperandTwo(resultTextView.getText().toString() + "00");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            }
-        });
-        findViewById(R.id.calc_button_1).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandOne("1");
-                } else {
-                    calculator.setOperandOne(resultTextView.getText().toString() + "1");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("1");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandTwo("1");
-                } else {
-                    calculator.setOperandTwo(resultTextView.getText().toString() + "1");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            }
-        });
-        findViewById(R.id.calc_button_2).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandOne("2");
-                } else {
-                    calculator.setOperandOne(resultTextView.getText().toString() + "2");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("2");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandTwo("2");
-                } else {
-                    calculator.setOperandTwo(resultTextView.getText().toString() + "2");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            }
-        });
-        findViewById(R.id.calc_button_3).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandOne("3");
-                } else {
-                    calculator.setOperandOne(resultTextView.getText().toString() + "3");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("3");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandTwo("3");
-                } else {
-                    calculator.setOperandTwo(resultTextView.getText().toString() + "3");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            }
-        });
-        findViewById(R.id.calc_button_4).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandOne("4");
-                } else {
-                    calculator.setOperandOne(resultTextView.getText().toString() + "4");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("4");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandTwo("4");
-                } else {
-                    calculator.setOperandTwo(resultTextView.getText().toString() + "4");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            }
-        });
-        findViewById(R.id.calc_button_5).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandOne("5");
-                } else {
-                    calculator.setOperandOne(resultTextView.getText().toString() + "5");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("5");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandTwo("5");
-                } else {
-                    calculator.setOperandTwo(resultTextView.getText().toString() + "5");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            }
-        });
-        findViewById(R.id.calc_button_6).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandOne("6");
-                } else {
-                    calculator.setOperandOne(resultTextView.getText().toString() + "6");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("6");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandTwo("6");
-                } else {
-                    calculator.setOperandTwo(resultTextView.getText().toString() + "6");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            }
-        });
-        findViewById(R.id.calc_button_7).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandOne("7");
-                } else {
-                    calculator.setOperandOne(resultTextView.getText().toString() + "7");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("7");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandTwo("7");
-                } else {
-                    calculator.setOperandTwo(resultTextView.getText().toString() + "7");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            }
-        });
-        findViewById(R.id.calc_button_8).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandOne("8");
-                } else {
-                    calculator.setOperandOne(resultTextView.getText().toString() + "8");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("8");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandTwo("8");
-                } else {
-                    calculator.setOperandTwo(resultTextView.getText().toString() + "8");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            }
-        });
-        findViewById(R.id.calc_button_9).setOnClickListener(v -> {
-            if (calculator.getOperator() == null) {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandOne("9");
-                } else {
-                    calculator.setOperandOne(resultTextView.getText().toString() + "9");
-                }
-                resultTextView.setText(calculator.getLastOperand());
-            } else if (calculator.getOperandTwo() == null) {
-                calculator.setOperandTwo("9");
-                resultTextView.setText(calculator.getLastOperand());
-            } else {
-                if (resultTextView.getText().toString().equals("0")) {
-                    calculator.setOperandTwo("9");
-                } else {
-                    calculator.setOperandTwo(resultTextView.getText().toString() + "9");
                 }
                 resultTextView.setText(calculator.getLastOperand());
             }
@@ -314,5 +123,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         outState.putParcelable(CALC, calculator);
         super.onSaveInstanceState(outState);
+    }
+
+    private void setNumberButtonListeners() {
+        for (int i = 0; i < numberButtonIds.length; i++) {
+            int index = i;
+            findViewById(numberButtonIds[i]).setOnClickListener(v -> onNumberClick(index));
+        }
+    }
+
+    private void onNumberClick(int number) {
+        String valueNumber = "" + number;
+        String resultStr = resultTextView.getText().toString();
+        if (calculator.getOperator() == null) {
+            if (resultStr.equals("0")) {
+                calculator.setOperandOne(valueNumber);
+            } else {
+                calculator.setOperandOne(resultStr + valueNumber);
+            }
+        } else if (calculator.getOperandTwo() == null) {
+            calculator.setOperandTwo(valueNumber);
+        } else {
+            if (resultStr.equals("0")) {
+                calculator.setOperandTwo(valueNumber);
+            } else {
+                calculator.setOperandTwo(resultStr + valueNumber);
+            }
+        }
+        resultTextView.setText(calculator.getLastOperand());
     }
 }
