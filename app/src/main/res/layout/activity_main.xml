@@ -7,15 +7,11 @@
     android:padding="@dimen/default_padding"
     tools:context=".MainActivity">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/main__output_text"
+        style="@style/ThemeCalcOutput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/purple_200"
-        android:padding="@dimen/default_padding"
-        android:textAlignment="viewEnd"
-        android:textStyle="bold"
-        app:drawableLeftCompat="@drawable/ic_android_black_24dp"
         app:layout_constraintBottom_toTopOf="@+id/main__container_calc"
         app:layout_constraintLeft_toLeftOf="@+id/main__container_calc"
         app:layout_constraintRight_toRightOf="@+id/main__container_calc"
@@ -27,9 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:columnCount="5"
+        android:columnCount="@integer/countColumn"
         android:orientation="horizontal"
-        android:rowCount="4"
+        android:padding="0dp"
+        android:rowCount="@integer/countRow"
         android:rowOrderPreserved="false"
         android:useDefaultMargins="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,113 +34,101 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main__output_text">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_7"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_7" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_8"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_8" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_9"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_9" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_divide"
-            android:layout_gravity="fill"
+            style="@style/ThemeCalcButtonVariant"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_divide" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_remove_all"
+            style="@style/ThemeCalcButtonVariant"
             android:layout_rowSpan="2"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_remove_all" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_4"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_4" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_5"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_5" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_6"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_6" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_multiply"
-            android:layout_gravity="fill"
+            style="@style/ThemeCalcButtonVariant"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_multiply" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_1"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_1" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_2"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_2" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_3"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_3" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_minus"
-            android:layout_gravity="fill"
+            style="@style/ThemeCalcButtonVariant"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_minus" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_equals"
+            style="@style/ThemeCalcButtonVariant"
             android:layout_rowSpan="2"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_equals" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_0"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_0" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_dot"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_dot" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_00"
-            android:layout_gravity="fill"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_00" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calc_button_plus"
-            android:layout_gravity="fill"
+            style="@style/ThemeCalcButtonVariant"
             android:minWidth="@dimen/min_width_calc_button"
             android:text="@string/calc_button_plus" />
 
