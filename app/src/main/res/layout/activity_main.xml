@@ -4,18 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/default_padding"
     tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/main__output_text"
         style="@style/ThemeCalcOutput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/default_padding"
         app:layout_constraintBottom_toTopOf="@+id/main__container_calc"
         app:layout_constraintLeft_toLeftOf="@+id/main__container_calc"
         app:layout_constraintRight_toRightOf="@+id/main__container_calc"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <GridLayout
@@ -25,7 +31,7 @@
         android:layout_gravity="center"
         android:columnCount="@integer/countColumn"
         android:orientation="horizontal"
-        android:padding="0dp"
+        android:padding="@dimen/default_padding"
         android:rowCount="@integer/countRow"
         android:rowOrderPreserved="false"
         android:useDefaultMargins="true"

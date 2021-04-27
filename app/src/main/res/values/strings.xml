@@ -18,4 +18,6 @@
     <string name="calc_button_dot">.</string>
     <string name="calc_button_divide">/</string>
     <string name="calc_button_minus">-</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="settings">settings</string>
 </resources>
